@@ -111,7 +111,7 @@ services:
   task-distributor:
     container_name: task-distributor
     build:
-      context: C:\Users\ivano\OneDrive\Рабочий стол\taskdistributor
+      context: ${TASK_DISTRIBUTOR_PATH}
       dockerfile: Dockerfile
     depends_on:
       kafka:
