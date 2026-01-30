@@ -18,14 +18,10 @@ target/
 *.iws
 *.iml
 *.ipr
+*.log
+*.log.*
+*.gz
+*.sqlite
+*.binlog
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 

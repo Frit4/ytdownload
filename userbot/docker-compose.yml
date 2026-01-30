@@ -1,0 +1,32 @@
+services:
+  bot:
+    container_name: bot
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: host.docker.internal:9092
+      PARTITION: 1
+      TDLIB_ID: ${TDLIB_ID}
+      TDLIB_HASH: ${TDLIB_HASH}
+      TDLIB_PHONE_NUMBER: ${TDLIB_PHONE_NUMBER}
+      REDIS_HOST: host.docker.internal
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      TG_CHATS: ${TG_CHATS}
+      POOL_TASK: 3
+    volumes:
+      - firefox-data:/config
+  firefox:
+    image: jlesage/firefox
+    ports:
+      - "5800:5800"
+    volumes:
+      - firefox-data:/config
+volumes:
+  firefox-data:
+    name: firefox-data
+
+

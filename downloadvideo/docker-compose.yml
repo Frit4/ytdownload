@@ -127,6 +127,12 @@ services:
       REDIS_PASSWORD: ${REDIS_PASSWORD}
       QUEUE_SIZE: 10
     networks: [backend]
+  firefox:
+    image: jlesage/firefox
+    ports:
+      - "5800:5800"
+    volumes:
+      - firefox-data:/config
 
 
 networks:
